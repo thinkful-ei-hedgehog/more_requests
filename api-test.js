@@ -17,8 +17,12 @@ function getWeatherData(city){
 //Async Await Solution
 async function getWeatherDataAsync(city){
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${appid}`;
+    try{
     let {data} = await axios.get(url);
     return `The temp in ${city} is ${data.main.temp}`;
+    } catch(e){
+        
+    }
 }
 
 getWeatherDataAsync('Denver').then(console.log);
